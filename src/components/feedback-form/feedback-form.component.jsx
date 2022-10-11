@@ -7,6 +7,9 @@ import FeedbackContext from '../../context/feedback.context';
 // Actions
 import { addFeedback } from '../../context/feedback.actions'
 
+// Components
+import FeedbackRating from './feedback-rating/feedback-rating.component';
+
 const FeedbackForm = () => {
     const [text, setText] = useState('');
     const { dispatch } = useContext(FeedbackContext);
@@ -34,6 +37,7 @@ const FeedbackForm = () => {
         <div className='form'>
             <h1>How would you rate our service with us?</h1>
             <form onSubmit={handleSubmit}>
+                <FeedbackRating />
                 <div className='input-group'>
                     <input type='text' name='text' placeholder='Post a feedback...' onChange={handleChange}
                         value={text} />
