@@ -3,14 +3,13 @@ import React from 'react';
 // Components
 import FeedbackItem from './feedback-item/feedback-item.component';
 
-// data
-import {data} from '../../data/feedback.data';
+// Context
 
 const FeedbackList = () => {
     return(
         <div className='feedback-list'>
             {data.map((item) => (
-                <FeedbackItem item={item} />
+                <FeedbackItem key={item.id} item={item} />
             ))}
         </div>
     )
