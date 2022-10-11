@@ -1,12 +1,12 @@
 .feedback-item {
     background-color: #fff;
     border-radius: 5px;
-    padding: 20px 50px;
+    padding: 40px 50px;
     position: relative;
     margin-bottom: 20px;
 }
 
-.feedback-rate {
+.feedback-item__rate {
     position: absolute;
     left: -20px;
     top: -15px;
@@ -19,12 +19,12 @@
     color: #fff;
 }
 
-.feedback-buttons {
+.feedback-item__buttons {
     position: absolute;
     right: 0px;
     top: 0px;
 }
 
-.feedback-text {
+.feedback-item__text {
 
 }
