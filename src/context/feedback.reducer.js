@@ -5,6 +5,11 @@ export const feedbackReducer = (state, action) => {
                 ...state,
                 feedbacks: action.payload
             }
+        case 'ADD_FEEDBACK':
+            return {
+                ...state,
+                feedbacks: [...state.feedbacks, action.payload]
+            }
         default:
             return state;
     }

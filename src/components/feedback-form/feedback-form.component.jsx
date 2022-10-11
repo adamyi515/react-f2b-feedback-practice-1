@@ -1,16 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import './feedback-form.style.css';
+
+// Context
+import FeedbackContext from '../../context/feedback.context';
+
+// Actions
+import { addFeedback } from '../../context/feedback.actions'
 
 const FeedbackForm = () => {
     const [text, setText] = useState('');
+    const { dispatch } = useContext(FeedbackContext);
 
     const handleChange = ev => {
         setText(ev.target.value);
     }
 
-    const handleSubmit = ev => {
+    const handleSubmit = async ev => {
         ev.preventDefault();
-        
+        const newFeedback = {
+            text,
+            rating: 5
+        }
+        const feedback = await addFeedback(newFeedback);
+        dispatch({
+            type: 'ADD_FEEDBACK',
+            payload: feedback
+        });
+
+        setText('');
     }
 
     return(
