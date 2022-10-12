@@ -16,7 +16,29 @@ export const feedbackReducer = (state, action) => {
                 feedbacks: state.feedbacks.filter((feedback) => feedback.id !== action.payload)
             }
         case 'EDIT_FEEDBACK':
-            return state;
+            return {
+                ...state,
+                feedback: {
+                    ...state.feedback,
+                    item: action.payload,
+                    isEditing: true
+                }
+            }
+        case 'UPDATE_FEEDBACK':
+            return {
+                ...state,
+                feedback: {
+                    isEditing: false,
+                    item: null
+                },
+                feedbacks: state.feedbacks.map((item)=> {
+                    if(item.id === action.payload.id){
+                        return action.payload;
+                    } else {
+                        return item;
+                    }
+                })
+            };
         default:
             return state;
     }

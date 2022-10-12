@@ -1,9 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './feedback-rating.style.css';
 
-const FeedbackRating = ({ selectRating }) => {
+const FeedbackRating = ({ selectRating, rating }) => {
     const [numSelected, setNumSelected] = useState(10);
 
+    useEffect(() => {
+        setNumSelected(rating);
+    }, [rating]);
+
+
+    // Event Handlers /////////////////////////////////////////////////////
     const handleSelect = ev => {
         setNumSelected(+ev.target.value);
         selectRating(+ev.target.value);

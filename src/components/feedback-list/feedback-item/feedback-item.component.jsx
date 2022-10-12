@@ -10,6 +10,8 @@ import { deleteFeedback } from '../../../context/feedback.actions';
 const FeedbackItem = ({ item }) => {
     const { dispatch } = useContext(FeedbackContext);
 
+
+    // Event handler methods
     const handleDelete = ev => {
         if(window.confirm('Are you sure you want to delete?')){
             deleteFeedback(item.id);
@@ -20,11 +22,18 @@ const FeedbackItem = ({ item }) => {
         }
     }
 
+    const handleEdit = ev => {
+        dispatch({
+            type: 'EDIT_FEEDBACK',
+            payload: item
+        })
+    }
+
     return(
         <div className='feedback-item'>
             <div className='feedback-item__rate'>{item.rating}</div>
             <div className='feedback-item__buttons'>
-                <button>edit</button>
+                <button onClick={handleEdit}>edit</button>
                 <button onClick={handleDelete}>delete</button>
             </div>
             <p className='feedback-item__text'>

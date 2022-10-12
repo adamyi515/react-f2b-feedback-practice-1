@@ -8,7 +8,11 @@ const FeedbackContext = createContext();
 
 export const FeedbackProvider = ( {children} ) => {
     const initialState = {
-        feedbacks: []
+        feedbacks: [],
+        feedback: {
+            item: null,
+            isEditing: false
+        }
     }
     const [state, dispatch] = useReducer(feedbackReducer, initialState);
 

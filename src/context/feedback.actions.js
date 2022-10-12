@@ -25,6 +25,15 @@ export const deleteFeedback = async (id) => {
     });
 }
 
-export const updateFeedback = async (id, newData) => {
+export const updateFeedback = async (item) => {
+    const response = await fetch(`http://localhost:5001/feedback/${item.id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(item)
+    });
 
+    const data = await response.json();
+    return data;
 }
