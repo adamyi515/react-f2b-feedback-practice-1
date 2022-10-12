@@ -15,3 +15,16 @@ export const addFeedback = async (newFeedback) => {
     const data = await response.json();
     return data;
 }
+
+export const deleteFeedback = async (id) => {
+    const response = await fetch(`http://localhost:5001/feedback/${id}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+}
+
+export const updateFeedback = async (id, newData) => {
+
+}
