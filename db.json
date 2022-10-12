@@ -24,6 +24,11 @@
       "text": "this is another test",
       "rating": 5,
       "id": 5
+    },
+    {
+      "text": "This is a test to post into json server",
+      "rating": 7,
+      "id": 6
     }
   ]
 }

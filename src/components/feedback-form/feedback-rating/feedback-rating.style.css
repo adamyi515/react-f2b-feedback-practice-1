@@ -1,0 +1,17 @@
+.feedback-rating {
+    display: flex;
+    justify-content: space-between;
+
+    list-style: none;
+
+    margin-bottom: 10px;
+}
+
+.feedback-rating li {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.feedback-rating li label {
+    margin-left: 5px;
+}

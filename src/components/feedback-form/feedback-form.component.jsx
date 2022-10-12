@@ -12,6 +12,7 @@ import FeedbackRating from './feedback-rating/feedback-rating.component';
 
 const FeedbackForm = () => {
     const [text, setText] = useState('');
+    const [rating, setRating] = useState(10);
     const { dispatch } = useContext(FeedbackContext);
 
     const handleChange = ev => {
@@ -22,7 +23,7 @@ const FeedbackForm = () => {
         ev.preventDefault();
         const newFeedback = {
             text,
-            rating: 5
+            rating
         }
         const feedback = await addFeedback(newFeedback);
         dispatch({
@@ -37,7 +38,7 @@ const FeedbackForm = () => {
         <div className='form'>
             <h1>How would you rate our service with us?</h1>
             <form onSubmit={handleSubmit}>
-                <FeedbackRating />
+                <FeedbackRating selectRating={setRating} />
                 <div className='input-group'>
                     <input type='text' name='text' placeholder='Post a feedback...' onChange={handleChange}
                         value={text} />
